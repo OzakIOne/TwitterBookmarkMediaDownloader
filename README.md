@@ -4,7 +4,7 @@
 
 ## How to use
 
-❗ MAKE SURE TO UNTICK `Ask where to save each file before downloading` in <a href="chrome://settings/downloads">chrome settings</a> (idk where it is in firefox) ❗
+❗ MAKE SURE TO UNTICK `Ask where to save each file before downloading` in chrome://settings/downloads (idk where it is in firefox) ❗
 
 1. copy the content of index.js
 1. go to https://twitter.com/i/bookmarks
