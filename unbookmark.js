@@ -1,6 +1,6 @@
 (async function () {
-  let number = 100;
-
+  let number = 100,
+    i = 0;
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   do {
@@ -14,9 +14,10 @@
       ),
     ].filter((el) => el.innerHTML.includes('Remove Tweet from Bookmarks'))[0];
     span.closest('[role="menuitem"]').click();
-    await sleep(1000);
+    await sleep(750);
     if (number % 10 === 0) {
-      console.log(number);
+      console.log(`${i} deleted`);
     }
+    i++;
   } while (number-- > 0);
 })();
