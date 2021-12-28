@@ -22,11 +22,11 @@
         a.style.display = 'none';
         a.href = bloburl;
         if (!fname) {
-          fname = new URL(url).pathname.split('/').pop();
-          fname += getExtension(url);
+          fname = new URL(url).pathname.split('/').pop() + '.jpg';
+          // fname += getExtension(url);
         } else {
-          fname +=
-            '_' + new URL(url).pathname.split('/').pop() + getExtension(url);
+          fname += '_' + new URL(url).pathname.split('/').pop() + '.jpg';
+          // '_' + new URL(url).pathname.split('/').pop() + getExtension(url);
         }
         a.download = fname;
         document.body.appendChild(a);
