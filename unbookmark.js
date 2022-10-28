@@ -1,8 +1,9 @@
-(async function () {
-  let number = 100,
-    i = 0;
+async function removeTweets(amount = 5) {
+  if(amount < 0) return;
+  
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  let i = 0;
   do {
     let btn = [
       ...document.querySelectorAll('.css-1dbjc4n.r-18u37iz.r-1h0z5md'),
@@ -15,9 +16,9 @@
     ].filter((el) => el.innerHTML.includes('Remove Tweet from Bookmarks'))[0];
     span.closest('[role="menuitem"]').click();
     await sleep(750);
-    if (number % 10 === 0) {
+    if (amount % 10 === 0) {
       console.log(`${i} deleted`);
     }
     i++;
-  } while (number-- > 0);
-})();
+  } while (amount-- > 0);
+};
