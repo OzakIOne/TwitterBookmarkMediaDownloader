@@ -1,4 +1,4 @@
-(async function () {
+async function download() {
   let urls = [];
   let names = [];
   document.body.scrollIntoView();
@@ -66,4 +66,4 @@
   } while (newImgs.length);
 
   console.log(Array.from(urls).join('\n'));
-})();
+};
