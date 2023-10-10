@@ -11,7 +11,7 @@
 1. press F12
 1. go into console if necessary
 1. paste into the devtool console
-1. profit
+1. then type `download` and press enter
 
 ## Another method
 

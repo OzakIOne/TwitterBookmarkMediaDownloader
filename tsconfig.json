@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "allowUnreachableCode": false, /* Disable error reporting for unreachable code. */
+    "allowUnusedLabels": false, /* Disable error reporting for unused labels. */
+    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
+    "noFallthroughCasesInSwitch": true, /* Enable error reporting for fallthrough cases in switch statements. */
+    "noImplicitAny": true, /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+    "noImplicitOverride": true, /* Ensure overriding members in derived classes are marked with an override modifier. */
+    "noImplicitReturns": true, /* Enable error reporting for codepaths that do not explicitly return in a function. */
+    "noPropertyAccessFromIndexSignature": true, /* Enforces using indexed accessors for keys declared using an indexed type. */
+    "noUncheckedIndexedAccess": true, /* Add 'undefined' to a type when accessed using an index. */
+    "noUnusedLocals": true, /* Enable error reporting when local variables aren't read. */
+    "noUnusedParameters": true, /* Raise an error when a function parameter isn't read. */
+    "skipDefaultLibCheck": true, /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true, /* Skip type checking all .d.ts files. */
+    "strict": true, /* Enable all strict type-checking options. */
+    "strictBindCallApply": true, /* Check that the arguments for 'bind', 'call', and 'apply' methods match the original function. */
+    "strictFunctionTypes": true, /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */
+    "strictNullChecks": true, /* When type checking, take into account 'null' and 'undefined'. */
+    "strictPropertyInitialization": true, /* Check for class properties that are declared but not set in the constructor. */
+    "useUnknownInCatchVariables": true /* Default catch clause variables as 'unknown' instead of 'any'. */
+  }
+}

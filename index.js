@@ -8,7 +8,12 @@ async function download() {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   // replace 360x360 with orig to have the original image
-  const normalizeUrl = (url) => url.replace(/\&name=[^&]+/, '&name=orig');
+  const normalizeUrl = (url) => {
+    let prout = url;
+    prout.replace(/\&name=[^&]+/, '&name=orig');
+    prout.replace(/\?format=[^&]+/, '?format=jpg');
+    return prout;
+  };
 
   // always returns jpeg
   const getExtension = (url) => new URL(url).searchParams.get('format');
@@ -38,9 +43,10 @@ async function download() {
   do {
     // somehow without var script throw error when running in browser
     var newImgs = Array.from(document.querySelectorAll('img')).filter(
-      (img) =>
-        /\.mp4|media/.test(img.src) && !urls.includes(normalizeUrl(img.src)),
+      (img) => /\.mp4|media/.test(img.src) && !urls.includes(img.src),
     );
+    console.log('newImgs', newImgs);
+
     for (const img of newImgs) {
       // fname equals to author @name
       let filename = '';
@@ -60,10 +66,10 @@ async function download() {
       names.push(filename);
       console.log(urls.length, url, filename);
       img.scrollIntoView();
-      download(url, filename);
-      await sleep(700);
+      // download(url, filename);
+      await sleep(200);
     }
   } while (newImgs.length);
 
   console.log(Array.from(urls).join('\n'));
-};
+}

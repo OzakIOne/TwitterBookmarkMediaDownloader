@@ -1,0 +1,25 @@
+{
+  "name": "TwitterBookmarkMediaDownloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit && swc src/ --only *.ts -d src",
+    "dev": "chokidar 'src/*.ts' -c 'pnpm run build'",
+    "watch": "swc src/*.ts -d src/ --watch",
+    "prettier": "prettier src/**/*.ts --write",
+    "lint": "eslint src/**/*.ts --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@swc/cli": "^0.1.62",
+    "chokidar": "^3.5.3",
+    "chokidar-cli": "^3.0.0",
+    "eslint": "^8.47.0",
+    "prettier": "^3.0.2",
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.1.6"
+  }
+}

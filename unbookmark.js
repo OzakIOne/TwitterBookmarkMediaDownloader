@@ -1,7 +1,7 @@
 async function removeTweets(amount = 5) {
-  if(amount < 0) return;
-  
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  if (amount < 0) return;
+
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   let i = 0;
   do {
@@ -21,4 +21,4 @@ async function removeTweets(amount = 5) {
     }
     i++;
   } while (amount-- > 0);
-};
+}
