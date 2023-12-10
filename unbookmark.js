@@ -10,7 +10,6 @@ async function removeTweets(amount = 5) {
     let btn = [
       ...document.querySelectorAll(bookMarkButtonSelector),
     ]
-    console.log(btn);
     btn[0].click();
     await sleep(750);
     if (amount % 10 === 0) {
