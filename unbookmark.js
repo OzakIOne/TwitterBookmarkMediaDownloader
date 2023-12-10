@@ -1,20 +1,17 @@
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const bookMarkButtonSelector = 'div.css-175oi2r.r-18u37iz.r-1h0z5md.r-1b7u577 > div > div > div > div';
+
 async function removeTweets(amount = 5) {
-  if(amount < 0) return;
-  
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  if(amount <= 0) return;
 
   let i = 0;
   do {
     let btn = [
-      ...document.querySelectorAll('.css-1dbjc4n.r-18u37iz.r-1h0z5md'),
-    ].filter((el) => el.innerHTML.includes('Share Tweet'));
-    btn[0].firstChild.click();
-    let span = [
-      ...document.querySelectorAll(
-        '.css-901oao.css-16my406.r-poiln3.r-bcqeeo.r-qvutc0',
-      ),
-    ].filter((el) => el.innerHTML.includes('Remove Tweet from Bookmarks'))[0];
-    span.closest('[role="menuitem"]').click();
+      ...document.querySelectorAll(bookMarkButtonSelector),
+    ]
+    console.log(btn);
+    btn[0].click();
     await sleep(750);
     if (amount % 10 === 0) {
       console.log(`${i} deleted`);
