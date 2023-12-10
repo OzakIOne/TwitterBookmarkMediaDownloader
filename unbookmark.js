@@ -3,7 +3,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const bookMarkButtonSelector = 'div.css-175oi2r.r-18u37iz.r-1h0z5md.r-1b7u577 > div > div > div > div';
 
 async function removeTweets(amount = 5) {
-  if(amount <= 0) return;
+  if(amount < 0) return;
 
   let i = 0;
   do {
