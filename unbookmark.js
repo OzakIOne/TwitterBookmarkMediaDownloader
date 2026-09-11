@@ -1,20 +1,36 @@
+// Paste this into the DevTools console while you are on
+// https://x.com/i/history (Bookmarks tab), then run:  removeTweets(50)
+//
+// This deletes bookmarks, so it never runs on its own.
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const bookMarkButtonSelector = 'div.css-175oi2r.r-18u37iz.r-1h0z5md.r-1b7u577 > div > div > div > div';
+// X exposes the bookmark control with a stable test id:
+// "removeBookmark" while the post is bookmarked, "bookmark" once it is not.
+const BOOKMARKED_SELECTOR = '[data-testid="removeBookmark"]';
 
 async function removeTweets(amount = 5) {
-  if(amount < 0) return;
+  let removed = 0;
 
-  let i = 0;
-  do {
-    let btn = [
-      ...document.querySelectorAll(bookMarkButtonSelector),
-    ]
-    btn[0].click();
-    await sleep(750);
-    if (amount % 10 === 0) {
-      console.log(`${i} deleted`);
+  while (removed < amount) {
+    const button = document.querySelector(BOOKMARKED_SELECTOR);
+
+    if (!button) {
+      // New bookmarks may still be lazy-loading further down the timeline.
+      window.scrollBy(0, window.innerHeight);
+      await sleep(1000);
+      if (!document.querySelector(BOOKMARKED_SELECTOR)) break;
+      continue;
     }
-    i++;
-  } while (amount-- > 0);
-};
+
+    button.scrollIntoView({ block: 'center' });
+    button.click();
+    removed += 1;
+    console.log(`${removed} deleted`);
+    await sleep(750);
+  }
+
+  console.log(`Done. ${removed} bookmark(s) removed.`);
+  return removed;
+}
+

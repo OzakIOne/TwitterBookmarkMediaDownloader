@@ -11,7 +11,15 @@
 1. press F12
 1. go into console if necessary
 1. paste into the devtool console
+1. if the browser asks, allow it to download multiple files
 1. profit
+
+## Remove bookmarks
+
+1. go to https://x.com/i/history and open the **Bookmarks** tab
+1. press F12 and open the console
+1. paste the content of [unbookmark.js](https://raw.githubusercontent.com/OzakIOne/TwitterBookmarkMediaDownloader/master/unbookmark.js)
+1. run `removeTweets(50)` to delete 50 bookmarks (the script never runs on its own)
 
 ## Another method
 
@@ -21,6 +29,6 @@
 1. scroll your bookmarks until you can't no more
 1. export HAR
 1. `grep -Po "https.+?(?=\?format=jpg&name)" file.har > jpgmedia`
-1. `sort finish | uniq > jpgmedia.uniq`
+1. `sort jpgmedia | uniq > jpgmedia.uniq`
 1. clean up the file & add `?format=jpg&name=orig` at the end of each media line
 1. `aria2c -j20 jpgmedia.uniq`
